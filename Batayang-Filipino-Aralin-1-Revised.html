@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Batayang Filipino - Aralin 1: Alpabetong Filipino, Patinig, Katinig, Pantig at Payak na Salita">
+  <title>Batayang Filipino | Aralin 1</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  <style>
+    :root{
+      --black:#000;
+      --white:#fff;
+      --gray:#f2f2f2;
+      --border:3px solid var(--black);
+      --shadow:7px 7px 0 var(--black);
+      --max:920px;
+    }
+
+    *{box-sizing:border-box}
+
+    html{scroll-behavior:smooth}
+
+    body{
+      margin:0;
+      background:var(--white);
+      color:var(--black);
+      font-family:Arial, Helvetica, sans-serif;
+      line-height:1.65;
+    }
+
+    button,input{font:inherit}
+
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:var(--white);
+      border-bottom:var(--border);
+    }
+
+    .topbar-inner{
+      max-width:var(--max);
+      margin:auto;
+      padding:12px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+
+    .brand{
+      font-weight:900;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    .icon-btn{
+      border:2px solid var(--black);
+      background:var(--white);
+      color:var(--black);
+      width:42px;
+      height:42px;
+      cursor:pointer;
+      box-shadow:3px 3px 0 var(--black);
+    }
+
+    .icon-btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--black)}
+
+    .progress-wrap{
+      height:8px;
+      border-top:1px solid var(--black);
+      background:var(--white);
+    }
+
+    #progress{
+      height:100%;
+      width:0;
+      background:var(--black);
+    }
+
+    main{
+      max-width:var(--max);
+      margin:auto;
+      padding:28px 18px 70px;
+    }
+
+    .cover{
+      min-height:70vh;
+      border:4px solid var(--black);
+      box-shadow:10px 10px 0 var(--black);
+      padding:clamp(28px,6vw,70px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      margin-bottom:50px;
+    }
+
+    .eyebrow{
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-size:.8rem;
+    }
+
+    h1{
+      font-size:clamp(2.5rem,8vw,5.5rem);
+      line-height:.95;
+      margin:16px 0;
+      text-transform:uppercase;
+      letter-spacing:-.05em;
+    }
+
+    .cover h2{
+      font-size:clamp(1.2rem,3vw,2rem);
+      margin:0 0 25px;
+      max-width:700px;
+    }
+
+    .meta{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:24px;
+    }
+
+    .meta div,.card,.test,.summary,.note{
+      border:var(--border);
+      background:var(--white);
+      box-shadow:var(--shadow);
+    }
+
+    .meta div{padding:14px}
+
+    .meta strong{display:block;text-transform:uppercase;font-size:.75rem}
+
+    section{
+      scroll-margin-top:90px;
+      margin:0 0 55px;
+    }
+
+    .section-number{
+      display:inline-block;
+      background:var(--black);
+      color:var(--white);
+      padding:6px 12px;
+      font-weight:900;
+      text-transform:uppercase;
+    }
+
+    h2{
+      font-size:clamp(1.7rem,5vw,2.6rem);
+      line-height:1.1;
+      margin:12px 0 20px;
+    }
+
+    h3{margin-top:28px}
+
+    .lead{font-size:1.08rem}
+
+    .card,.test,.summary,.note{
+      padding:20px;
+      margin:22px 0;
+    }
+
+    .note{background:var(--gray)}
+
+    .big-letters{
+      border:4px solid var(--black);
+      padding:20px;
+      text-align:center;
+      font-weight:900;
+      font-size:clamp(1.5rem,5vw,2.6rem);
+      letter-spacing:.12em;
+      overflow-wrap:anywhere;
+    }
+
+    .vowels{
+      display:grid;
+      grid-template-columns:repeat(5,1fr);
+      gap:10px;
+      margin:18px 0;
+    }
+
+    .vowels span{
+      border:var(--border);
+      text-align:center;
+      padding:15px 5px;
+      font-size:2rem;
+      font-weight:900;
+      box-shadow:4px 4px 0 var(--black);
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:18px 0;
+    }
+
+    th,td{
+      border:2px solid var(--black);
+      padding:10px;
+      text-align:left;
+    }
+
+    th{background:var(--black);color:var(--white)}
+
+    .example{
+      border-left:7px solid var(--black);
+      padding:10px 16px;
+      margin:14px 0;
+      background:var(--gray);
+    }
+
+    .syllable{
+      font-size:1.35rem;
+      font-weight:900;
+      word-spacing:.5rem;
+      text-align:center;
+      border:var(--border);
+      padding:14px;
+      margin:12px 0;
+    }
+
+    .test h3{
+      margin-top:0;
+      text-transform:uppercase;
+    }
+
+    .mastery{
+      border:2px solid var(--black);
+      padding:10px 12px;
+      margin:12px 0;
+      font-weight:800;
+      background:var(--gray);
+    }
+
+    .score{
+      display:inline-block;
+      border:2px solid var(--black);
+      padding:5px 10px;
+      font-weight:800;
+      margin-bottom:12px;
+    }
+
+    .question{
+      padding:12px 0;
+      border-bottom:1px solid #aaa;
+    }
+
+    .question:last-child{border-bottom:0}
+
+    .answer{
+      width:100%;
+      margin-top:7px;
+      border:2px solid var(--black);
+      padding:9px;
+      background:var(--white);
+    }
+
+    .answer-key details{
+      border:2px solid var(--black);
+      padding:12px;
+      margin:10px 0;
+    }
+
+    summary{
+      cursor:pointer;
+      font-weight:900;
+    }
+
+    .toc{
+      border:var(--border);
+      padding:20px;
+      margin-bottom:40px;
+    }
+
+    .toc a{
+      display:block;
+      color:var(--black);
+      text-decoration:none;
+      font-weight:800;
+      padding:8px 0;
+      border-bottom:1px solid #aaa;
+    }
+
+    .toc a:last-child{border-bottom:0}
+
+    footer{
+      border-top:4px solid var(--black);
+      text-align:center;
+      padding:25px 18px;
+      font-weight:700;
+    }
+
+    @media (max-width:700px){
+      .topbar-inner{padding:9px 12px}
+      main{padding:20px 12px 55px}
+      .cover{min-height:auto;padding:35px 20px;margin-bottom:38px;box-shadow:6px 6px 0 var(--black)}
+      .meta{grid-template-columns:1fr}
+      .vowels{gap:6px}
+      .vowels span{font-size:1.45rem;padding:10px 2px;box-shadow:3px 3px 0 var(--black)}
+      .card,.test,.summary,.note{padding:15px;box-shadow:5px 5px 0 var(--black)}
+      table{font-size:.9rem}
+      th,td{padding:7px}
+    }
+
+    @media (max-width:390px){
+      h1{font-size:2.35rem}
+      .brand{font-size:.82rem}
+      .big-letters{font-size:1.25rem;letter-spacing:.06em;padding:14px}
+      .syllable{font-size:1.05rem;word-spacing:.2rem}
+    }
+
+    @media print{
+      .topbar{display:none}
+      body{font-family:"Times New Roman",serif}
+      main{max-width:none;padding:0}
+      .cover,.card,.test,.summary,.note{box-shadow:none}
+      section{break-inside:avoid}
+      .cover{min-height:95vh}
+      .answer{border-bottom:1px solid #000;border-left:0;border-right:0;border-top:0}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><i class="fa-solid fa-book-open"></i> Batayang Filipino</div>
+      <button class="icon-btn" onclick="window.print()" aria-label="Print lesson" title="Print">
+        <i class="fa-solid fa-print"></i>
+      </button>
+    </div>
+    <div class="progress-wrap"><div id="progress"></div></div>
+  </header>
+
+  <main>
+    <article class="cover">
+      <div class="eyebrow">Panimulang Kurso sa Wikang Filipino</div>
+      <h1>Batayang Filipino</h1>
+      <h2>Aralin 1: Ang Alpabetong Filipino, Patinig, Katinig, Pantig, at Payak na Salita</h2>
+      <p>Isang sistematikong panimulang aralin para sa mag-aaral na nagsisimulang matutuhan ang pagbasa, pag-unawa, at paggamit ng wikang Filipino.</p>
+      <div class="meta">
+        <div><strong>Antas</strong>Panimula / Batayang Grade 1</div>
+        <div><strong>Oras</strong>3 Oras</div>
+        <div><strong>Pokus</strong>Pagbasa at Wika</div>
+      </div>
+    </article>
+
+    <nav class="toc">
+      <h2><i class="fa-solid fa-list"></i> Nilalaman</h2>
+      <a href="#layunin">Mga Layunin</a>
+      <a href="#alpabeto">1. Ang Alpabetong Filipino</a>
+      <a href="#patinig">2. Ang Patinig</a>
+      <a href="#katinig">3. Ang Katinig</a>
+      <a href="#pantig">4. Pagbuo ng Pantig</a>
+      <a href="#salita">5. Mula sa Pantig Tungo sa Salita</a>
+      <a href="#gamit">6. Paggamit ng mga Salita</a>
+      <a href="#final">Pangwakas na Pagtataya</a>
+      <a href="#buod">Buod</a>
+    </nav>
+
+    <section id="layunin">
+      <span class="section-number">Panimula</span>
+      <h2>Mga Layunin ng Aralin</h2>
+      <p class="lead">Ang pag-aaral ng wika ay nagsisimula sa pagkilala sa mga titik at tunog. Ginagamit ang mga ito upang makabuo ng pantig, salita, at pangungusap.</p>
+      <div class="card">
+        <p>Pagkatapos ng araling ito, ang mag-aaral ay inaasahang:</p>
+        <ol>
+          <li>makilala ang mga titik ng Alpabetong Filipino;</li>
+          <li>matukoy ang malaking titik at maliit na titik;</li>
+          <li>makilala ang limang patinig;</li>
+          <li>makilala ang mga katinig;</li>
+          <li>matukoy ang pagkakaiba ng patinig at katinig;</li>
+          <li>makabasa ng mga payak na pantig;</li>
+          <li>mapagsama ang mga pantig upang makabuo ng salita; at</li>
+          <li>makabasa at makaunawa ng ilang payak na salitang Filipino.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="alpabeto">
+      <span class="section-number">Bahagi I</span>
+      <h2>Ang Alpabetong Filipino</h2>
+      <p>Ang <strong>alpabeto</strong> ay pangkat ng mga titik na ginagamit sa pagsulat ng isang wika. Ang makabagong Alpabetong Filipino ay binubuo ng <strong>28 titik</strong>.</p>
+
+      <div class="big-letters">A B C D E F G H I J K L M N Ñ NG O P Q R S T U V W X Y Z</div>
+
+      <h3>Malaking Titik at Maliit na Titik</h3>
+      <p>Ang bawat titik ay maaaring isulat bilang malaking titik o maliit na titik. Ang <strong>A</strong> at <strong>a</strong>, halimbawa, ay iisang titik na magkaiba lamang ang anyo ng pagkakasulat.</p>
+
+      <table>
+        <thead><tr><th>Malaking Titik</th><th>Maliit na Titik</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>a</td></tr><tr><td>B</td><td>b</td></tr>
+          <tr><td>M</td><td>m</td></tr><tr><td>P</td><td>p</td></tr>
+          <tr><td>T</td><td>t</td></tr>
+        </tbody>
+      </table>
+
+      <div class="note"><strong>Tandaan:</strong> Ang malaking titik ay ginagamit, bukod sa iba pang gamit, sa simula ng pangungusap at sa mga tiyak na pangalan gaya ng <em>Maria, Pampanga,</em> at <em>Filipinas</em>.</div>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-pen-to-square"></i> Pagtataya 1: Pagkilala sa Titik</h3>
+        <p>Layunin: masukat kung nakikilala ng mag-aaral ang titik sa iba’t ibang anyo, hindi lamang sa isang nakasanayang pagkakasunod-sunod.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Piliin ang hinihinging titik.</strong></p>
+        <div class="question">1. Alin ang M? &nbsp; N &nbsp;&nbsp; M &nbsp;&nbsp; A &nbsp;&nbsp; B <input class="answer"></div>
+        <div class="question">2. Alin ang T? &nbsp; P &nbsp;&nbsp; L &nbsp;&nbsp; T &nbsp;&nbsp; K <input class="answer"></div>
+        <p><strong>B. Itambal ang malaking titik sa maliit na titik.</strong></p>
+        <div class="question">3. A → ____ &nbsp;&nbsp; (b, a, m) <input class="answer"></div>
+        <div class="question">4. M → ____ &nbsp;&nbsp; (n, p, m) <input class="answer"></div>
+        <div class="question">5. T → ____ &nbsp;&nbsp; (t, l, f) <input class="answer"></div>
+        <p><strong>C. Isulat nang mag-isa.</strong></p>
+        <div class="question">6. Isulat ang maliit na titik ng B. <input class="answer"></div>
+        <div class="question">7. Isulat ang malaking titik ng p. <input class="answer"></div>
+        <p><strong>D. Pasalitang Pagtataya.</strong> Ipakita nang paisa-isa at hindi sunod-sunod ang D, K, A. Ipatukoy sa mag-aaral ang bawat titik.</p>
+      </div>
+    </section>
+
+    <section id="patinig">
+      <span class="section-number">Bahagi II</span>
+      <h2>Ang Patinig</h2>
+      <p>Ang <strong>patinig</strong> ay tinatawag na <em>vowel</em> sa Ingles. May limang pangunahing patinig sa Filipino.</p>
+      <div class="vowels"><span>A</span><span>E</span><span>I</span><span>O</span><span>U</span></div>
+
+      <div class="card">
+        <p><strong>A</strong> — <em>aso</em> — dog</p>
+        <p><strong>E</strong> — <em>eroplano</em> — airplane</p>
+        <p><strong>I</strong> — <em>ibon</em> — bird</p>
+        <p><strong>O</strong> — <em>oras</em> — time</p>
+        <p><strong>U</strong> — <em>ulo</em> — head</p>
+      </div>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-pen-to-square"></i> Pagtataya 2: Pagkilala sa Patinig</h3>
+        <p>Layunin: matukoy ang patinig nang walang pares na halatang pagpipilian at makita ang patinig sa loob ng salita.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Isulat ang lahat ng patinig na makikita.</strong></p>
+        <div class="question">1. M – A – T – U – K – E – S – I – P – O <input class="answer" placeholder="Isulat ang mga patinig"></div>
+        <p><strong>B. Hanapin ang patinig sa salita.</strong></p>
+        <div class="question">2. BATA — mga patinig: <input class="answer"></div>
+        <div class="question">3. PUSA — mga patinig: <input class="answer"></div>
+        <div class="question">4. MESA — mga patinig: <input class="answer"></div>
+        <div class="question">5. ITO — mga patinig: <input class="answer"></div>
+        <p><strong>C. Pasalitang Pagtataya.</strong> Magbanggit ang guro ng limang halo-halong titik. Sabihin ng mag-aaral kung alin ang patinig.</p>
+      </div>
+    </section>
+
+    <section id="katinig">
+      <span class="section-number">Bahagi III</span>
+      <h2>Ang Katinig</h2>
+      <p>Ang <strong>katinig</strong> ay tinatawag na <em>consonant</em> sa Ingles. Sa payak na pagkilala, ang mga titik na hindi kabilang sa A, E, I, O, at U ay mga katinig.</p>
+
+      <table>
+        <thead><tr><th>Titik</th><th>Uri</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>Patinig</td></tr><tr><td>B</td><td>Katinig</td></tr>
+          <tr><td>E</td><td>Patinig</td></tr><tr><td>K</td><td>Katinig</td></tr>
+          <tr><td>I</td><td>Patinig</td></tr><tr><td>M</td><td>Katinig</td></tr>
+          <tr><td>O</td><td>Patinig</td></tr><tr><td>S</td><td>Katinig</td></tr>
+          <tr><td>U</td><td>Patinig</td></tr><tr><td>T</td><td>Katinig</td></tr>
+        </tbody>
+      </table>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-table-columns"></i> Pagtataya 3: Pag-uuri ng Titik</h3>
+        <p>Layunin: maihiwalay nang tama ang patinig at katinig at mailapat ang kaalaman sa isang salita.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Iuri ang mga titik: A, B, U, M, E, T.</strong></p>
+        <div class="question">Patinig: <input class="answer"></div>
+        <div class="question">Katinig: <input class="answer"></div>
+        <p><strong>B. Suriin ang salita.</strong></p>
+        <div class="question">MATA — mga patinig: <input class="answer"></div>
+        <div class="question">MATA — mga katinig: <input class="answer"></div>
+        <div class="question">PUSA — mga patinig: <input class="answer"></div>
+        <div class="question">PUSA — mga katinig: <input class="answer"></div>
+      </div>
+    </section>
+
+    <section id="pantig">
+      <span class="section-number">Bahagi IV</span>
+      <h2>Pagbuo ng Pantig</h2>
+      <p>Kapag pinagsama ang mga tunog ng mga titik, maaaring makabuo ng <strong>pantig</strong> o <em>syllable</em>.</p>
+      <div class="example"><strong>B + A = BA</strong><br>Ang B ay katinig at ang A ay patinig.</div>
+
+      <div class="syllable">BA BE BI BO BU</div>
+      <div class="syllable">MA ME MI MO MU</div>
+      <div class="syllable">PA PE PI PO PU</div>
+      <div class="syllable">SA SE SI SO SU</div>
+      <div class="syllable">TA TE TI TO TU</div>
+      <div class="syllable">KA KE KI KO KU</div>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-book-reader"></i> Pagtataya 4: Pagbuo at Pagbasa ng Pantig</h3>
+        <p>Layunin: malaman kung nauunawaan ng mag-aaral kung paano nagsasanib ang katinig at patinig, sa halip na kabisaduhin lamang ang serye.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Basahin ang mga pantig na halo-halo.</strong></p>
+        <div class="big-letters">MI &nbsp; BO &nbsp; SU &nbsp; KA &nbsp; PE</div>
+        <p><strong>B. Pagsamahin ang mga titik.</strong></p>
+        <div class="question">1. M + A = <input class="answer"></div>
+        <div class="question">2. S + U = <input class="answer"></div>
+        <div class="question">3. K + O = <input class="answer"></div>
+        <p><strong>C. Hatiin ang pantig sa dalawang titik.</strong></p>
+        <div class="question">4. BA = ____ + ____ <input class="answer"></div>
+        <div class="question">5. PI = ____ + ____ <input class="answer"></div>
+      </div>
+    </section>
+
+    <section id="salita">
+      <span class="section-number">Bahagi V</span>
+      <h2>Mula sa Pantig Tungo sa Salita</h2>
+      <p>Ang mga pantig ay maaaring pagsamahin upang makabuo ng salita.</p>
+
+      <div class="card">
+        <p><strong>BA + TA = BATA</strong> — child</p>
+        <p><strong>MA + TA = MATA</strong> — eye</p>
+        <p><strong>PU + SA = PUSA</strong> — cat</p>
+        <p><strong>A + SO = ASO</strong> — dog</p>
+        <p><strong>BA + HAY = BAHAY</strong> — house</p>
+        <p><strong>TU + BIG = TUBIG</strong> — water</p>
+        <p><strong>NA + NAY = NANAY</strong> — mother</p>
+        <p><strong>TA + TAY = TATAY</strong> — father</p>
+      </div>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-book-open-reader"></i> Pagtataya 5: Pagbasa ng Salita</h3>
+        <p>Layunin: masukat ang tunay na pagbasa gamit ang pinaghalong salitang napag-aralan at bagong salitang maaaring basahin mula sa natutuhang pantig.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Basahin nang walang pantig na gabay.</strong></p>
+        <div class="big-letters">PUSA &nbsp; BATA &nbsp; KAMA &nbsp; MESA &nbsp; SAPA</div>
+        <p><strong>B. Iugnay sa kahulugan.</strong> Maaaring gumamit ang guro ng aktuwal na bagay o larawan para sa unang tatlong salita.</p>
+        <div class="question">1. Aling salita ang tumutukoy sa cat? &nbsp; ASO / PUSA / MATA <input class="answer"></div>
+        <div class="question">2. Aling salita ang tumutukoy sa dog? &nbsp; BATA / ASO / BAHAY <input class="answer"></div>
+        <div class="question">3. Aling salita ang tumutukoy sa water? &nbsp; TUBIG / TATAY / PUSA <input class="answer"></div>
+      </div>
+    </section>
+
+    <section id="gamit">
+      <span class="section-number">Bahagi VI</span>
+      <h2>Paggamit ng mga Salita</h2>
+      <p>Ang mga salitang natutuhan ay maaari nang gamitin upang maunawaan ang simpleng Filipino.</p>
+
+      <div class="example">
+        <strong>Ano ito?</strong><br>
+        <em>What is this?</em>
+      </div>
+
+      <p>Kung ang ipinakikitang bagay o larawan ay aso:</p>
+      <div class="example"><strong>Ano ito?</strong><br>Aso.</div>
+
+      <h3>Pagbuo ng Payak na Pangungusap</h3>
+      <p><strong>Ito ay aso.</strong> — This is a dog.</p>
+      <p><strong>Ito ay pusa.</strong> — This is a cat.</p>
+      <p><strong>Ito ay tubig.</strong> — This is water.</p>
+
+      <div class="test">
+        <h3><i class="fa-solid fa-comments"></i> Pagtataya 6: Pag-unawa at Paggamit</h3>
+        <p>Layunin: gamitin ang natutuhan sa payak na komunikasyon sa halip na ulitin lamang ang pagsasalin ng salita.</p>
+        <div class="mastery">Markahan pagkatapos: Mastered / Developing / Needs Practice</div>
+        <p><strong>A. Pasalitang Pagtataya.</strong> Magpakita ang guro ng larawan o aktuwal na bagay. Itanong: <strong>Ano ito?</strong> Hayaang sumagot ang mag-aaral nang walang pagpipiliang sagot.</p>
+        <div class="question">1. Larawan/bagay: aso — Sagot ng mag-aaral: <input class="answer"></div>
+        <div class="question">2. Larawan/bagay: pusa — Sagot ng mag-aaral: <input class="answer"></div>
+        <div class="question">3. Larawan/bagay: tubig — Sagot ng mag-aaral: <input class="answer"></div>
+        <p><strong>B. Bumuo ng buong pangungusap.</strong></p>
+        <div class="question">4. Gamitin ang salitang <strong>aso</strong> sa hulwarang “Ito ay ____.” <input class="answer"></div>
+        <div class="question">5. Gamitin ang salitang <strong>pusa</strong> sa hulwarang “Ito ay ____.” <input class="answer"></div>
+        <p><strong>C. Pag-unawa.</strong></p>
+        <div class="question">6. Kapag tinanong na “Ano ito?”, ano ang hinihinging impormasyon? <input class="answer" placeholder="Maaaring sumagot sa Filipino o English"></div>
+      </div>
+    </section>
+
+    <section id="final">
+      <span class="section-number">Pagtataya</span>
+      <h2>Pangwakas na Pagtataya</h2>
+      <p>Ang pangwakas na pagtataya ay gumagamit ng ilang <strong>bagong halimbawa</strong>. Layunin nitong malaman kung naililipat ng mag-aaral ang natutuhan sa mga titik, pantig, at salitang hindi lamang kinabisado mula sa pagsasanay.</p>
+      <div class="test">
+        <div class="mastery">Pangkalahatang Antas: Mastered / Developing / Needs Practice</div>
+
+        <h3>I. Pagkilala sa Titik</h3>
+        <p>Ipakita nang paisa-isa at hindi sunod-sunod: <strong>D, K, A, P, U</strong>. Ipatukoy ang bawat titik.</p>
+
+        <h3>II. Hanapin ang Patinig</h3>
+        <p>Sa <strong>B – U – K – A – S</strong>, isulat ang mga patinig.</p>
+        <input class="answer">
+
+        <h3>III. Hanapin ang Katinig</h3>
+        <p>Sa <strong>M – A – S – A</strong>, isulat ang mga katinig.</p>
+        <input class="answer">
+
+        <h3>IV. Basahin ang Bagong Pantig</h3>
+        <p class="syllable">KO &nbsp; MI &nbsp; SU &nbsp; PE &nbsp; TA</p>
+
+        <h3>V. Basahin ang mga Salita</h3>
+        <p>Dalawang salitang napag-aralan at tatlong salitang maaaring basahin gamit ang natutuhang kasanayan.</p>
+        <p class="syllable">PUSA &nbsp; BATA &nbsp; KAMA &nbsp; MESA &nbsp; SAPA</p>
+
+        <h3>VI. Pag-unawa at Komunikasyon</h3>
+        <p>Magpakita ng larawan o aktuwal na bagay na aso, pusa, o tubig. Itanong: <strong>Ano ito?</strong> Dapat subukang sumagot ang mag-aaral gamit ang <strong>Ito ay ____.</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>Talaan ng Kasanayan</h3>
+        <table>
+          <thead><tr><th>Kasanayan</th><th>Mastered</th><th>Developing</th><th>Needs Practice</th></tr></thead>
+          <tbody>
+            <tr><td>Pagkilala sa Titik</td><td>□</td><td>□</td><td>□</td></tr>
+            <tr><td>Pagkilala sa Patinig</td><td>□</td><td>□</td><td>□</td></tr>
+            <tr><td>Pagkilala sa Katinig</td><td>□</td><td>□</td><td>□</td></tr>
+            <tr><td>Pagbuo at Pagbasa ng Pantig</td><td>□</td><td>□</td><td>□</td></tr>
+            <tr><td>Pagbasa ng Salita</td><td>□</td><td>□</td><td>□</td></tr>
+            <tr><td>Payak na Pag-unawa at Komunikasyon</td><td>□</td><td>□</td><td>□</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Mastered:</strong> nagagawa nang tama at nakapag-iisa. <strong>Developing:</strong> nauunawaan ngunit nangangailangan paminsan-minsan ng gabay. <strong>Needs Practice:</strong> nangangailangan pa ng tuwirang pagsasanay bago magpatuloy.</p>
+      </div>
+    </section>
+
+    <section class="answer-key">
+      <span class="section-number">Gabay ng Guro</span>
+      <h2>Susi at Gabay sa Pagwawasto</h2>
+      <details><summary>Pagtataya 1</summary><p>1. M; 2. T; 3. a; 4. m; 5. t; 6. b; 7. P. Para sa pasalitang bahagi, dapat matukoy ang D, K, at A nang paisa-isa.</p></details>
+      <details><summary>Pagtataya 2</summary><p>1. A, U, E, I, O; 2. A, A; 3. U, A; 4. E, A; 5. I, O.</p></details>
+      <details><summary>Pagtataya 3</summary><p>Patinig: A, U, E. Katinig: B, M, T. MATA: patinig A, A; katinig M, T. PUSA: patinig U, A; katinig P, S.</p></details>
+      <details><summary>Pagtataya 4</summary><p>Basahin: MI, BO, SU, KA, PE. 1. MA; 2. SU; 3. KO; 4. B + A; 5. P + I.</p></details>
+      <details><summary>Pagtataya 5</summary><p>Basahin nang walang pantig na gabay: PUSA, BATA, KAMA, MESA, SAPA. Kahulugan: 1. PUSA; 2. ASO; 3. TUBIG.</p></details>
+      <details><summary>Pagtataya 6</summary><p>1–3: dapat matukoy ang ipinakitang bagay nang walang pagpipilian. 4. Ito ay aso. 5. Ito ay pusa. 6. Hinihingi kung ano ang bagay na ipinakikita o tinutukoy.</p></details>
+      <details><summary>Pangwakas na Pagtataya</summary><p>I: D, K, A, P, U. II: U, A. III: M, S. IV: KO, MI, SU, PE, TA. V: PUSA, BATA, KAMA, MESA, SAPA. VI: ang sagot ay dapat tumukoy nang tama sa ipinakitang bagay; hikayatin ang buong hulwarang “Ito ay ____.”</p></details>
+    </section>
+
+    <section id="buod">
+      <span class="section-number">Buod</span>
+      <h2>Mahahalagang Natutuhan</h2>
+      <div class="summary">
+        <p>Ang <strong>Alpabetong Filipino</strong> ay may 28 titik.</p>
+        <p>Ang limang <strong>patinig</strong> ay <strong>A, E, I, O, U</strong>.</p>
+        <p>Ang ibang titik ay kabilang sa mga <strong>katinig</strong>.</p>
+        <p>Maaaring pagsamahin ang katinig at patinig upang makabuo ng <strong>pantig</strong>: <strong>B + A = BA</strong>.</p>
+        <p>Maaaring pagsamahin ang mga pantig upang makabuo ng salita: <strong>BA + TA = BATA</strong>.</p>
+        <p>Ang mga salitang natutuhan ay maaari nang gamitin sa payak na komunikasyon: <strong>Ito ay aso.</strong></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <i class="fa-solid fa-book"></i> Batayang Filipino — Aralin 1
+  </footer>
+
+  <script>
+    const progress = document.getElementById('progress');
+    function updateProgress(){
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      const value = max > 0 ? (doc.scrollTop / max) * 100 : 0;
+      progress.style.width = value + '%';
+    }
+    document.addEventListener('scroll', updateProgress, {passive:true});
+    updateProgress();
+  </script>
+</body>
+</html>
